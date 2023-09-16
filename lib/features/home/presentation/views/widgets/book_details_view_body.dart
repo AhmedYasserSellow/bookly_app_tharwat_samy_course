@@ -21,8 +21,8 @@ class BookDetailsViewBody extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 162 / 375,
             child: const BooksItem(),
           ),
-          const SizedBox(
-            height: 40,
+          SizedBox(
+            height: 40 / 812 * MediaQuery.of(context).size.height,
           ),
           const Text(
             'The Jungle Book',
@@ -40,7 +40,10 @@ class BookDetailsViewBody extends StatelessWidget {
           const SizedBox(
             height: 14,
           ),
-          const BookRating()
+          const BookRating(),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 14 / 812,
+          ),
         ],
       ),
     );
