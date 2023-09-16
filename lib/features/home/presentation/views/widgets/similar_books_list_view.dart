@@ -7,7 +7,7 @@ class SimilarBooksListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 112 / 812 * MediaQuery.of(context).size.height,
+      height: 112,
       child: ListView.separated(
         itemCount: 10,
         separatorBuilder: (context, index) {
