@@ -9,6 +9,7 @@ class BookDetailsAppBar extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(
         bottom: 20,
+        top: 40,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
