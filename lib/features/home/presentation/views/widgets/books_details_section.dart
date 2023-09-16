@@ -10,6 +10,7 @@ class BookItemDetailsScetion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisSize: MainAxisSize.min,
       children: [
         const SizedBox(
           height: 36,
