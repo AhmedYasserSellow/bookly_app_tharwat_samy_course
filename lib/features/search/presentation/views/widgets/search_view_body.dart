@@ -9,6 +9,12 @@ class SearchViewBody extends StatelessWidget {
     return const Column(
       children: [
         SearchTextField(),
+        SizedBox(
+          height: 16,
+        ),
+        SizedBox(
+          height: 16,
+        )
       ],
     );
   }

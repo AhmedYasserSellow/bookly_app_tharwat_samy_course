@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_action_button.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/books_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/books_photo.dart';
 import 'package:flutter/material.dart';
 
 class BookItemDetailsScetion extends StatelessWidget {
@@ -17,7 +17,7 @@ class BookItemDetailsScetion extends StatelessWidget {
         ),
         const SizedBox(
           width: 162,
-          child: BooksItem(),
+          child: BooksPhoto(),
         ),
         const SizedBox(
           height: 40,
