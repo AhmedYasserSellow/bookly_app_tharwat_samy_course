@@ -8,6 +8,7 @@ class BookRating extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         const Icon(
           FontAwesomeIcons.solidStar,
@@ -21,7 +22,7 @@ class BookRating extends StatelessWidget {
           style: Styles.textStyle16,
         ),
         const SizedBox(
-          width: 5,
+          width: 9,
         ),
         Text(
           '(2390)',
