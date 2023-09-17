@@ -1,12 +1,17 @@
 import 'package:bookly_app/core/utils/app_router.dart';
-import 'package:bookly_app/core/utils/assets.dart';
+
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/books_photo.dart';
 import 'package:flutter/material.dart';
 
 class BookItem extends StatelessWidget {
-  const BookItem({super.key});
-
+  const BookItem({
+    super.key,
+    required this.bookModel,
+  });
+  final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,19 +24,9 @@ class BookItem extends StatelessWidget {
           height: 124,
           child: Row(
             children: [
-              AspectRatio(
+              BooksPhoto(
                 aspectRatio: 2.5 / 4,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    image: const DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage(
-                        AssetsData.testImage,
-                      ),
-                    ),
-                  ),
-                ),
+                imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
               ),
               const SizedBox(
                 width: 30,
@@ -42,8 +37,8 @@ class BookItem extends StatelessWidget {
                   children: [
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
-                      child: const Text(
-                        'Harry Potter and the Goblet of Fire',
+                      child: Text(
+                        bookModel.volumeInfo.title,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle20,
@@ -52,8 +47,8 @@ class BookItem extends StatelessWidget {
                     const SizedBox(
                       height: 3,
                     ),
-                    const Text(
-                      'J.K. Rowling',
+                    Text(
+                      bookModel.volumeInfo.authors[0],
                       style: Styles.textStyle14,
                     ),
                     const SizedBox(
@@ -63,12 +58,15 @@ class BookItem extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '19.99 \$',
+                          'Free',
                           style: Styles.textStyle20.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const BookRating()
+                        BookRating(
+                          rating: bookModel.volumeInfo.averageRating ?? 0,
+                          count: bookModel.volumeInfo.ratingsCount ?? 0,
+                        )
                       ],
                     ),
                   ],

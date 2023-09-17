@@ -23,6 +23,7 @@ class FeaturedBooksListView extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8),
                   child: BooksPhoto(
+                    aspectRatio: 2.7 / 4,
                     imageUrl:
                         state.books[index].volumeInfo.imageLinks.thumbnail,
                   ),
