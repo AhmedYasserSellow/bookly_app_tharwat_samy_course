@@ -35,7 +35,8 @@ class BookItemDetailsScetion extends StatelessWidget {
           height: 4,
         ),
         Text(
-          bookModel.volumeInfo.authors![0],
+          bookModel.volumeInfo.authors?[0] ?? 'Unknown',
+          textAlign: TextAlign.center,
           style: Styles.textStyle18.copyWith(
             color: const Color(0xff707070),
           ),

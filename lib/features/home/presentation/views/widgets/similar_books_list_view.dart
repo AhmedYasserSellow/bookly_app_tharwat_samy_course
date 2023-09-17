@@ -17,6 +17,7 @@ class SimilarBooksListView extends StatelessWidget {
           return SizedBox(
             height: 112,
             child: ListView.separated(
+              physics: const BouncingScrollPhysics(),
               itemCount: state.books.length,
               separatorBuilder: (context, index) {
                 return const SizedBox(

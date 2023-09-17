@@ -9,8 +9,8 @@ class BookDetailsViewBody extends StatelessWidget {
   final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(slivers: [
-      SliverFillRemaining(
+    return CustomScrollView(physics: const BouncingScrollPhysics(), slivers: [
+      SliverToBoxAdapter(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Column(
@@ -19,9 +19,9 @@ class BookDetailsViewBody extends StatelessWidget {
               BookItemDetailsScetion(
                 bookModel: bookModel,
               ),
-              const Expanded(
-                child: SizedBox(
-                  height: 50,
+              Container(
+                constraints: const BoxConstraints(
+                  minHeight: 50,
                 ),
               ),
               const SimilarBooksSection(),

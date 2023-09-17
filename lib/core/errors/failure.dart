@@ -35,6 +35,9 @@ class ServerFailure extends Failure {
   }
   factory ServerFailure.fromStatusCode(int statusCode, dynamic response) {
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
+      if (response['error']['message'] == 'Missing query.') {
+        return ServerFailure('No Results');
+      }
       return ServerFailure(response['error']['message']);
     } else if (statusCode == 404) {
       return ServerFailure('Your request is not found');
