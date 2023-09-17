@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/widgets/error_widget.dart';
 import 'package:bookly_app/core/widgets/loading_indicator.dart';
 import 'package:bookly_app/features/home/presentation/view_models/featured_books_cubit/featured_books_cubit_cubit.dart';
@@ -20,12 +21,19 @@ class FeaturedBooksListView extends StatelessWidget {
               itemCount: state.books.length,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: BooksPhoto(
-                    aspectRatio: 2.7 / 4,
-                    imageUrl:
-                        state.books[index].volumeInfo.imageLinks.thumbnail,
+                return InkWell(
+                  onTap: () {
+                    AppRouter.pageNavigator(context, AppRouter.kBookDetailsView,
+                        extra: state.books[index]);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: BooksPhoto(
+                      aspectRatio: 2.7 / 4,
+                      imageUrl:
+                          state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                              '',
+                    ),
                   ),
                 );
               },

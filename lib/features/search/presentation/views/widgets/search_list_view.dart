@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/widgets/book_item.dart';
+// import 'package:bookly_app/core/widgets/book_item.dart';
 import 'package:flutter/material.dart';
 
 class SearchListView extends StatelessWidget {
@@ -14,7 +14,8 @@ class SearchListView extends StatelessWidget {
         padding: EdgeInsetsDirectional.zero,
         itemCount: 10,
         itemBuilder: (context, index) {
-          return const BookItem();
+          // return  BookItem();
+          return const SizedBox();
         },
       ),
     );

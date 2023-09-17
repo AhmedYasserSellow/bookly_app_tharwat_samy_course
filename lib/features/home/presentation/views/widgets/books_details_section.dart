@@ -19,7 +19,7 @@ class BookItemDetailsScetion extends StatelessWidget {
         SizedBox(
           width: 162,
           child: BooksPhoto(
-            imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
             aspectRatio: 2.7 / 4,
           ),
         ),
@@ -27,14 +27,15 @@ class BookItemDetailsScetion extends StatelessWidget {
           height: 40,
         ),
         Text(
-          bookModel.volumeInfo.title,
+          bookModel.volumeInfo.title!,
+          textAlign: TextAlign.center,
           style: Styles.textStyle30,
         ),
         const SizedBox(
           height: 4,
         ),
         Text(
-          bookModel.volumeInfo.authors[0],
+          bookModel.volumeInfo.authors![0],
           style: Styles.textStyle18.copyWith(
             color: const Color(0xff707070),
           ),

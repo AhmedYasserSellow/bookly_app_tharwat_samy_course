@@ -39,7 +39,7 @@ abstract class AppRouter {
       ),
     ],
   );
-  static void pageNavigator(BuildContext context, String pageRoute) {
-    GoRouter.of(context).push(pageRoute);
+  static void pageNavigator(BuildContext context, String pageRoute, {extra}) {
+    GoRouter.of(context).push(pageRoute, extra: extra);
   }
 }

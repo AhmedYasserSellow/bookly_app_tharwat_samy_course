@@ -1,7 +1,8 @@
 import 'package:bookly_app/core/widgets/error_widget.dart';
 import 'package:bookly_app/core/widgets/loading_indicator.dart';
 import 'package:bookly_app/features/home/presentation/view_models/similar_books_cubit/similar_books_cubit.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/similar_books_item.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/books_photo.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +26,11 @@ class SimilarBooksListView extends StatelessWidget {
               padding: EdgeInsets.zero,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                return const SimilarBooksItem();
+                return BooksPhoto(
+                  imageUrl:
+                      state.books[index].volumeInfo.imageLinks?.thumbnail ?? '',
+                  aspectRatio: 0.625,
+                );
               },
             ),
           );

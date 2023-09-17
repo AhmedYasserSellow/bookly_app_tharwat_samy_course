@@ -18,7 +18,11 @@ class BookItem extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: InkWell(
         onTap: () {
-          AppRouter.pageNavigator(context, AppRouter.kBookDetailsView);
+          AppRouter.pageNavigator(
+            context,
+            AppRouter.kBookDetailsView,
+            extra: bookModel,
+          );
         },
         child: SizedBox(
           height: 124,
@@ -26,7 +30,7 @@ class BookItem extends StatelessWidget {
             children: [
               BooksPhoto(
                 aspectRatio: 2.5 / 4,
-                imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+                imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
               ),
               const SizedBox(
                 width: 30,
@@ -38,7 +42,7 @@ class BookItem extends StatelessWidget {
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.5,
                       child: Text(
-                        bookModel.volumeInfo.title,
+                        bookModel.volumeInfo.title!,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Styles.textStyle20,
@@ -48,7 +52,7 @@ class BookItem extends StatelessWidget {
                       height: 3,
                     ),
                     Text(
-                      bookModel.volumeInfo.authors[0],
+                      bookModel.volumeInfo.authors![0],
                       style: Styles.textStyle14,
                     ),
                     const SizedBox(

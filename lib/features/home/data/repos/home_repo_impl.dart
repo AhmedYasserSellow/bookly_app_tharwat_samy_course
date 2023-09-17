@@ -13,7 +13,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       Map<String, dynamic> data = await apiServices.get(
           endPoint:
-              'volumes?Filtering=free-ebooks&q=subject:Programming&sorting=newest');
+              'volumes?Filtering=free-ebooks&q=subject:comedy&sorting=newest');
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
@@ -36,7 +36,7 @@ class HomeRepoImpl extends HomeRepo {
   Future<Either<Failure, List<BookModel>>> fetchFeatureBooks() async {
     try {
       Map<String, dynamic> data = await apiServices.get(
-          endPoint: 'volumes?Filtering=free-ebooks&q=subject:Programming');
+          endPoint: 'volumes?Filtering=free-ebooks&q=subject:programming');
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));
@@ -61,7 +61,7 @@ class HomeRepoImpl extends HomeRepo {
     try {
       Map<String, dynamic> data = await apiServices.get(
           endPoint:
-              'volumes?sorting=relevance&Filtering=free-ebooks&q=subject:Programming');
+              'volumes?sorting=relevance&Filtering=free-ebooks&q=$category');
       List<BookModel> books = [];
       for (var item in data['items']) {
         books.add(BookModel.fromJson(item));

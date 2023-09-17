@@ -19,8 +19,9 @@ class BooksPhoto extends StatelessWidget {
         child: CachedNetworkImage(
           imageUrl: imageUrl,
           fit: BoxFit.fill,
-          errorWidget: (context, url, error) =>
-              const Icon(FontAwesomeIcons.exclamation),
+          errorWidget: (context, url, error) => const Icon(
+            FontAwesomeIcons.exclamation,
+          ),
         ),
       ),
     );
